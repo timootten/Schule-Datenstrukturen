@@ -5,7 +5,6 @@ public class Reverse {
   
   // Aufgabe - 6
   public static void reverseStack(Stack stack) {
-
     Queue queue = new Queue();
 
     while(!stack.isEmpty()) {
@@ -21,7 +20,6 @@ public class Reverse {
   
   // Aufgabe - 7
   public static void reverseQueue(Queue queue) {
-
     Stack stack = new Stack();
 
     while(!queue.isEmpty()) {
