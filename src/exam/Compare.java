@@ -34,6 +34,55 @@ public class Compare {
     printQueueAndDelete(queue2);*/
   }
 
+  public static boolean compareQueue2(Queue queue1, Queue queue2) {
+    Queue temp1 = new Queue();
+    Queue temp2 = new Queue();
+
+    boolean output = true;
+
+    // Vergleichen
+    while(output && !queue1.isEmpty() && !queue2.isEmpty()) {
+      Object object1 = queue1.front();
+      Object object2 = queue2.front();
+      if(!object1.equals(object2)) {
+        output = false;
+      }
+      temp1.enqueue(object1);
+      temp2.enqueue(object2);
+      queue1.dequeue();
+      queue2.dequeue();
+    }
+
+    if(queue1.isEmpty() != queue2.isEmpty()) {
+      output = false;
+    }
+
+    // Wenn noch nicht empty dann in temp clonen
+    while(!queue1.isEmpty()) {
+      temp1.enqueue(queue1.front());
+      queue1.dequeue();
+    }
+
+    while(!queue2.isEmpty()) {
+      temp2.enqueue(queue2.front());
+      queue2.dequeue();
+      
+    }
+
+    // Aus temp1/temp2 in queue kopieren
+    while(!temp1.isEmpty()) {
+      queue1.enqueue(temp1.front());
+      temp1.dequeue();
+    }
+
+    while(!temp2.isEmpty()) {
+      queue2.enqueue(temp2.front());
+      temp2.dequeue();
+    }
+
+    return output;
+  }
+
   public static boolean compareQueue(Queue queue1, Queue queue2) {
     Queue temp1 = new Queue();
     Queue temp2 = new Queue();
@@ -54,17 +103,20 @@ public class Compare {
       temp2.enqueue(object2);
     }
 
+    if(queue1.isEmpty() != queue2.isEmpty()) {
+      output = false;
+    }
+
     // Wenn noch nicht empty dann in temp clonen
     while(!queue1.isEmpty()) {
       temp1.enqueue(queue1.front());
       queue1.dequeue();
-      output = false;
     }
 
     while(!queue2.isEmpty()) {
       temp2.enqueue(queue2.front());
       queue2.dequeue();
-      output = false;
+      
     }
 
     // Aus temp1/temp2 in queue kopieren

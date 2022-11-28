@@ -6,10 +6,9 @@ public class UPN {
 
   public static void main(String[] args) {
     
-    String input = "5 3 - 5 *";//JOptionPane.showInputDialog("Eingabe einer UPN: ");
+    String input = JOptionPane.showInputDialog("Eingabe einer UPN: ");
     Double output = upn(input);
-    System.out.println(output);
-    //JOptionPane.showMessageDialog(null, "Ausgabe: " + output);
+    JOptionPane.showMessageDialog(null, "Ausgabe: " + output);
   }
   
   // Aufgabe - 3
@@ -21,9 +20,9 @@ public class UPN {
     // Schritt 2: Eingabe von link nach rechts durchgehen
     for (String token : tokens) {
         if(token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/") || token.equals("pot")) {
-          double number1 = Double.parseDouble(stack.top() + "");
+          double number1 = Double.parseDouble(stack.top().toString());
           stack.pop();
-          double number2 = Double.parseDouble(stack.top() + "");
+          double number2 = Double.parseDouble(stack.top().toString());
           stack.pop();
           double tmp = 0;
           switch (token) {
