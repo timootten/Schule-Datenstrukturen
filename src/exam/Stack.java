@@ -31,7 +31,7 @@ public class Stack {
   }
 
   public Object top() {
-    return head.getObject();
+    return head.getContent();
   }
 
 }

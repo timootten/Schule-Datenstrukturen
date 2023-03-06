@@ -5,7 +5,6 @@ import javax.swing.JOptionPane;
 public class UPN {
 
   public static void main(String[] args) {
-    
     String input = JOptionPane.showInputDialog("Eingabe einer UPN: ");
     Double output = upn(input);
     JOptionPane.showMessageDialog(null, "Ausgabe: " + output);

@@ -1,6 +1,8 @@
-package exam;
+import exam.Queue;
+import exam.Reverse;
+import exam.Stack;
 
-public class Main {
+public class TestMain {
  
   public static void main(String[] args) {
     // Reverse Queue

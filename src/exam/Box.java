@@ -3,28 +3,28 @@ package exam;
 // Aufgabe - 5
 public class Box {
   
-  private Object pObject = null;
+  private Object content = null;
   private Box next = null;
 
   public Box() {
     
   }
 
-  public Box(Object pObject) {
-    this.pObject = pObject;
+  public Box(Object content) {
+    this.content = content;
   }
 
-  public Box(Object pObject, Box next) {
-    this.pObject = pObject;
+  public Box(Object content, Box next) {
+    this.content = content;
     this.next = next;
   }
 
-  public Object getObject() {
-    return pObject;
+  public Object getContent() {
+    return content;
   }
 
-  public void setObject(Object pObject) {
-    this.pObject = pObject;
+  public void setContent(Object pObject) {
+    this.content = pObject;
   }
 
   public Box getNext() {

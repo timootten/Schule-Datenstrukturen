@@ -43,7 +43,7 @@ public class Queue {
 
   public Object front() {
     if(isEmpty()) return null;
-    return head.getObject();
+    return head.getContent();
   }
 
 }

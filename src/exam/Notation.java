@@ -1,3 +1,5 @@
+package exam;
+
 import exam.Stack;
 
 public class Notation {
