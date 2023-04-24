@@ -1,10 +1,11 @@
-package exam;
+package list2;
 
 public class List {
 
     private Box head = null;
     private Box tail = null;
     private Box current = null;
+
 
     public List() {
 
@@ -21,6 +22,14 @@ public class List {
     public void next() {
         if(!isEmpty() && hasAccess()) {
             current = current.getNext();
+        } else {
+            current = null;
+        }
+    }
+
+    public void prev() {
+        if(!isEmpty() && hasAccess()) {
+            current = current.getPrev();
         } else {
             current = null;
         }
@@ -81,6 +90,23 @@ public class List {
                 }
                 neu.setNext(current);
                 temp.setNext(neu);
+            }
+        }
+    }
+
+    public void insertD(Object object) {
+        if(object == null) return;
+        if(!isEmpty() && !hasAccess()) return;
+        Box neu = new Box(object);
+        if(isEmpty()) {
+            head = tail = neu;
+        } else {
+            if(head == current) {
+                head.setPrev(neu);
+                neu.setNext(head);
+                head = neu;
+            } else {
+
             }
         }
     }
