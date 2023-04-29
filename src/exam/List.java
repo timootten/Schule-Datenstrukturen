@@ -15,7 +15,7 @@ public class List {
     }
 
     public boolean hasAccess() {
-        return current == null;
+        return current != null;
     }
 
     public void next() {
