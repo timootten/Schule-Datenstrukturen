@@ -100,13 +100,17 @@ public class List {
         Box neu = new Box(object);
         if(isEmpty()) {
             head = tail = neu;
+            current = null;
         } else {
             if(head == current) {
                 head.setPrev(neu);
                 neu.setNext(head);
                 head = neu;
             } else {
-
+                neu.setNext(current);
+                neu.setPrev(current.getPrev());
+                current.getPrev().setNext(neu);
+                current.setNext(neu);
             }
         }
     }
