@@ -110,7 +110,7 @@ public class List {
                 neu.setNext(current);
                 neu.setPrev(current.getPrev());
                 current.getPrev().setNext(neu);
-                current.setNext(neu);
+                current.setPrev(neu);
             }
         }
     }
