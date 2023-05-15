@@ -159,9 +159,9 @@ public class List {
         if(isEmpty() || !hasAccess()) return;
 
         if(current == head) {
-            head = current.getNext();
-            head.setPrev(null);
-            current = head;
+            next();
+            if(current != null) current.setPrev(null);
+            head = current;
         } else {
             Box temp = head;
             while (temp.getNext() != current) {
