@@ -1,4 +1,6 @@
-package list2;
+package exam2;
+
+import list2.Box;
 
 public class List {
 
@@ -6,17 +8,14 @@ public class List {
     private Box tail = null;
     private Box current = null;
 
-
-    public List() {
-
-    }
+    public List() {}
 
     public boolean isEmpty() {
         return head == null && tail == null;
     }
 
     public boolean hasAccess() {
-        return current == null;
+        return current != null;
     }
 
     public void next() {
@@ -76,6 +75,7 @@ public class List {
         Box neu = new Box(object);
         if(isEmpty()) {
             head = tail = neu;
+            current = null;
         } else {
             tail.setNext(neu);
             neu.setPrev(tail);
@@ -162,13 +162,14 @@ public class List {
             next();
             if(current != null) current.setPrev(null);
             head = current;
+            if(head == null) tail = null;
         } else {
-            Box temp = head;
-            while (temp.getNext() != current) {
-                temp = temp.getNext();
-            }
-            temp.setNext(current.getNext());
+            Box temp = current.getPrev();
             current = current.getNext();
+            if(current != null) current.setPrev(temp);
+            temp.setNext(current);
+            if(current == null)
+                tail = temp;
         }
     }
 
