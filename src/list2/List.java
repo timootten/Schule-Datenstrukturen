@@ -117,10 +117,34 @@ public class List {
         tail = list.tail;
     }
 
+    public void concatD(List list) {
+        if(list == null || list.isEmpty()) return;
+        list.head.setPrev(tail);
+        tail.setNext(list.head);
+        tail = list.tail;
+    }
+
     public void remove() {
         if(isEmpty() || !hasAccess()) return;
         if(current == head) {
             head = current.getNext();
+            current = head;
+        } else {
+            Box temp = head;
+            while (temp.getNext() != current) {
+                temp = temp.getNext();
+            }
+            temp.setNext(current.getNext());
+            current = current.getNext();
+        }
+    }
+
+    public void removeD() {
+        if(isEmpty() || !hasAccess()) return;
+
+        if(current == head) {
+            head = current.getNext();
+            head.setPrev(null);
             current = head;
         } else {
             Box temp = head;
